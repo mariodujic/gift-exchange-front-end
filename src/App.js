@@ -13,7 +13,7 @@ import {ThemeProvider} from "@material-ui/styles";
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: colors.darkNavy,
+      main: colors.warning,
     },
     secondary: {
       main: colors.accent
