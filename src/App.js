@@ -1,0 +1,81 @@
+import React from 'react';
+import './App.css';
+import {RegisterPage} from "./Register";
+import {HomePage} from "./Home";
+import {userService} from "./_services";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {LoginPage} from "./Login";
+import {ErrorPage} from "./Error";
+import {colors} from "./_utils";
+import {createMuiTheme} from "@material-ui/core";
+import {ThemeProvider} from "@material-ui/styles";
+import yellow from "@material-ui/core/colors/yellow";
+import green from "@material-ui/core/colors/green";
+
+const useStyles = {
+  root: {
+    background: colors.light
+  }
+}
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: colors.darkGrey,
+    },
+    secondary: {
+      main: colors.accent
+    },
+  },
+});
+
+class App extends React.Component {
+  state = {
+    currentUser: null
+  }
+
+  componentDidMount() {
+    this.loadInitialUser()
+    // authenticationService.currentUser.subscribe(value => this.setState({currentUser: value}))
+  }
+
+  loadInitialUser() {
+    const user = userService.getUser()
+    this.setState({
+      currentUser: user ? user : null
+    })
+  }
+
+  setNewUser = (user) => {
+    console.log("Setting new user");
+    this.setState({
+      currentUser: user
+    })
+  }
+
+  render() {
+    const currentUser = this.state.currentUser;
+    return (
+        <ThemeProvider theme={theme}>
+          <div style={useStyles.root}>
+            <Router>
+              {currentUser ? <HomePage/> : this.authenticationDom()}
+            </Router>
+          </div>
+        </ThemeProvider>
+    )
+  }
+
+  authenticationDom() {
+    return (
+        <Switch>
+          <Route path="/" exact render={(props) => <LoginPage onLogin={this.setNewUser}/>}/>
+          <Route path="/login" render={(props) => <LoginPage onLogin={this.setNewUser}/>}/>
+          <Route path="/register" render={(props) => <RegisterPage onRegister={this.setNewUser}/>}/>
+          <Route component={ErrorPage}/>
+        </Switch>
+    )
+  }
+}
+
+export default App;
