@@ -13,7 +13,7 @@ import {ThemeProvider} from "@material-ui/styles";
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: colors.darkGrey,
+      main: colors.darkNavy,
     },
     secondary: {
       main: colors.accent
@@ -60,12 +60,14 @@ class App extends React.Component {
 
   authenticationDom() {
     return (
-        <Switch>
-          <Route path="/" exact render={(props) => <LoginPage onLogin={this.setNewUser}/>}/>
-          <Route path="/login" render={(props) => <LoginPage onLogin={this.setNewUser}/>}/>
-          <Route path="/register" render={(props) => <RegisterPage onRegister={this.setNewUser}/>}/>
-          <Route component={ErrorPage}/>
-        </Switch>
+        <div className="authorization">
+          <Switch>
+            <Route path="/" exact render={(props) => <LoginPage onLogin={this.setNewUser}/>}/>
+            <Route path="/login" render={(props) => <LoginPage onLogin={this.setNewUser}/>}/>
+            <Route path="/register" render={(props) => <RegisterPage onRegister={this.setNewUser}/>}/>
+            <Route component={ErrorPage}/>
+          </Switch>
+        </div>
     )
   }
 }

@@ -8,17 +8,20 @@ import Button from "@material-ui/core/Button";
 import Tutorial from "../components/Tutorial/Tutorial";
 
 const useStyles = {
-  root: {
-    display: "flex",
-    height: "100vh",
-    alignItems: "center",
-    justifyContent: "center"
-  },
   title: commonStyles.title,
   image: commonStyles.mediumLogoImage,
+  form: {
+    marginTop: "3rem"
+  },
   button: {
-    backgroundColor: colors.success,
-    color: colors.light,
+    fontSize: "350%",
+    color: colors.warning,
+    textShadow: `2px 2px ${colors.darkNavy}`,
+    fontFamily: 'Denk One, sans-serif',
+    marginBlockEnd: "0px",
+    marginBlockStart: "0px",
+    height: "60px",
+    lineHeight: 0,
     minWidth: "330px"
   },
   input: {
@@ -26,6 +29,9 @@ const useStyles = {
   },
   warning: {
     color: colors.warning,
+  },
+  link: {
+    padding: "10px"
   }
 }
 
@@ -79,7 +85,7 @@ class RegisterPage extends React.Component {
 
   render() {
     return (
-        <div style={useStyles.root}>
+        <div>
           <Grid
               container
               direction="column"
@@ -87,10 +93,7 @@ class RegisterPage extends React.Component {
               alignItems="center">
             <Tutorial/>
             <Grid item>
-              <h2 style={useStyles.title}>Register</h2>
-            </Grid>
-            <Grid item>
-              <div>
+              <div style={useStyles.form}>
                 <form onSubmit={this.registerUser}>
                   <Grid
                       spacing={1}
@@ -154,7 +157,7 @@ class RegisterPage extends React.Component {
                     </Grid>
                     <Grid item>
                       <Button
-                          variant="contained"
+                          variant="text"
                           style={useStyles.button}
                           type="submit"
                       >Register</Button>
@@ -168,8 +171,8 @@ class RegisterPage extends React.Component {
                 direction="row"
                 justify="center"
                 alignItems="center">
-              <Grid item><p>Already have an account? </p></Grid>
-              <Grid item><Link to="/login">Sign in</Link></Grid>
+              <Grid item style={useStyles.link}><p>Already have an account? </p></Grid>
+              <Grid item style={useStyles.link}><Link to="/login">Sign in</Link></Grid>
             </Grid>
           </Grid>
         </div>

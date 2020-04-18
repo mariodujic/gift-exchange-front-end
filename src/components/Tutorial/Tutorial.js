@@ -3,6 +3,12 @@ import Grid from "@material-ui/core/Grid";
 import {colors} from "../../_utils";
 
 const useStyles = {
+  root: {
+    width: "100vw"
+  },
+  item: {
+    marginTop: "50px"
+  },
   text: {
     color: colors.warning,
     marginBlockEnd: 0
@@ -19,8 +25,9 @@ class Tutorial extends React.Component {
         container
         direction="row"
         justify="space-around"
-        alignItems="center">
-      <Grid item>
+        alignItems="center"
+        style={useStyles.root}>
+      <Grid item style={useStyles.item}>
         <Grid container
               direction="column"
               justify="center"
@@ -35,7 +42,7 @@ class Tutorial extends React.Component {
           </Grid>
         </Grid>
       </Grid>
-      <Grid item>
+      <Grid item style={useStyles.item}>
         <Grid
             container
             direction="column"
@@ -51,7 +58,7 @@ class Tutorial extends React.Component {
           </Grid>
         </Grid>
       </Grid>
-      <Grid item>
+      <Grid item style={useStyles.item}>
         <Grid container
               direction="column"
               justify="center"
