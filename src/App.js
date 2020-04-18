@@ -19,6 +19,9 @@ const theme = createMuiTheme({
       main: colors.accent
     },
   },
+  typography: {
+    fontFamily: 'Baloo Bhaina 2, cursive',
+  }
 });
 
 class App extends React.Component {
