@@ -13,17 +13,7 @@ const useStyles = {
   form: {
     marginTop: "3rem"
   },
-  button: {
-    fontSize: "350%",
-    color: colors.warning,
-    textShadow: `2px 2px ${colors.darkNavy}`,
-    fontFamily: 'Denk One, sans-serif',
-    marginBlockEnd: "0px",
-    marginBlockStart: "0px",
-    height: "60px",
-    lineHeight: 0,
-    minWidth: "330px"
-  },
+  button: commonStyles.formButton,
   input: {
     minWidth: "330px"
   },

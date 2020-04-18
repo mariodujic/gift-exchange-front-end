@@ -4,7 +4,7 @@ import {colors} from "../../_utils";
 
 const useStyles = {
   root: {
-    width: "100vw"
+    width: "80vw"
   },
   item: {
     marginTop: "50px"
