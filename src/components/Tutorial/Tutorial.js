@@ -2,7 +2,7 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import {colors} from "../../_utils";
 
-const useStyles = {
+let useStyles = {
   root: {
     width: "80vw"
   },

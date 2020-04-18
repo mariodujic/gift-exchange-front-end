@@ -16,5 +16,19 @@ export const commonStyles = {
     lineHeight: 0,
     minWidth: "330px",
     marginTop: "10px"
+  },
+  displayTitle: {
+    fontSize: "220%",
+    color: colors.warning,
+    textShadow: `1px 1px ${colors.darkNavy}`,
+    fontFamily: 'Denk One, sans-serif',
+    textTransform: "none"
+  },
+  actionButton: {
+    fontSize: "180%",
+    color: colors.warning,
+    textShadow: `1px 1px ${colors.darkNavy}`,
+    fontFamily: 'Denk One, sans-serif',
+    textTransform: "none"
   }
 }
