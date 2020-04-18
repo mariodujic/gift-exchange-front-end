@@ -6,6 +6,7 @@ import TextField from "@material-ui/core/TextField";
 import {commonStyles} from "../_utils/styles";
 import Button from "@material-ui/core/Button";
 import {colors} from "../_utils/colors";
+import Tutorial from "../components/Tutorial/Tutorial";
 
 const useStyles = {
   root: {
@@ -20,7 +21,6 @@ const useStyles = {
     backgroundColor: colors.success,
     color: colors.light,
     minWidth: "330px",
-    height: "50px"
   },
   input: {
     minWidth: "330px"
@@ -76,11 +76,7 @@ class LoginPage extends React.Component {
               direction="column"
               justify="center"
               alignItems="center">
-            <Grid item>
-              <img
-                  style={useStyles.image}
-                  src="/images/gift.svg" alt=""/>
-            </Grid>
+            <Tutorial/>
             <Grid item>
               <h2 style={useStyles.title}>Login</h2>
             </Grid>
@@ -132,8 +128,7 @@ class LoginPage extends React.Component {
                 container
                 direction="row"
                 justify="center"
-                alignItems="center"
-                spacing={2}>
+                alignItems="center">
               <Grid item><p>Don't have an account? </p></Grid>
               <Grid item><Link to="/register">Create an account!</Link></Grid>
             </Grid>

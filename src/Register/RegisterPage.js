@@ -5,6 +5,7 @@ import {colors, commonStyles} from "../_utils";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import Tutorial from "../components/Tutorial/Tutorial";
 
 const useStyles = {
   root: {
@@ -18,8 +19,7 @@ const useStyles = {
   button: {
     backgroundColor: colors.success,
     color: colors.light,
-    minWidth: "330px",
-    height: "50px"
+    minWidth: "330px"
   },
   input: {
     minWidth: "330px"
@@ -66,7 +66,7 @@ class RegisterPage extends React.Component {
     )
   }
 
-  invalidInputHandler = (message)=> {
+  invalidInputHandler = (message) => {
     this.setState({invalidInput: true})
     this.setState({invalidInputMessage: message})
   }
@@ -85,11 +85,7 @@ class RegisterPage extends React.Component {
               direction="column"
               justify="center"
               alignItems="center">
-            <Grid item>
-              <img
-                  style={useStyles.image}
-                  src="/images/gift.svg" alt=""/>
-            </Grid>
+            <Tutorial/>
             <Grid item>
               <h2 style={useStyles.title}>Register</h2>
             </Grid>
@@ -171,8 +167,7 @@ class RegisterPage extends React.Component {
                 container
                 direction="row"
                 justify="center"
-                alignItems="center"
-                spacing={2}>
+                alignItems="center">
               <Grid item><p>Already have an account? </p></Grid>
               <Grid item><Link to="/login">Sign in</Link></Grid>
             </Grid>

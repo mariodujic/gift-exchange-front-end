@@ -9,14 +9,6 @@ import {ErrorPage} from "./Error";
 import {colors} from "./_utils";
 import {createMuiTheme} from "@material-ui/core";
 import {ThemeProvider} from "@material-ui/styles";
-import yellow from "@material-ui/core/colors/yellow";
-import green from "@material-ui/core/colors/green";
-
-const useStyles = {
-  root: {
-    background: colors.light
-  }
-}
 
 const theme = createMuiTheme({
   palette: {
@@ -57,7 +49,7 @@ class App extends React.Component {
     const currentUser = this.state.currentUser;
     return (
         <ThemeProvider theme={theme}>
-          <div style={useStyles.root}>
+          <div>
             <Router>
               {currentUser ? <HomePage/> : this.authenticationDom()}
             </Router>
