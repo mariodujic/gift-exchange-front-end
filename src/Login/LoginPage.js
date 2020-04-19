@@ -5,7 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 import {commonStyles} from "../_utils/styles";
 import Button from "@material-ui/core/Button";
-import {colors} from "../_utils/colors";
+import {buttonText, colors, text, warningText} from "../_utils";
 import Tutorial from "../components/Tutorial/Tutorial";
 
 const useStyles = {
@@ -37,11 +37,11 @@ class LoginPage extends React.Component {
   loginUser = (event) => {
     event.preventDefault();
     if (!validity.emailForm(this.state.username)) {
-      this.invalidInputHandler("Email length should be more then 1")
+      this.invalidInputHandler(warningText.emailSize)
       return;
     }
     if (!validity.passwordForm(this.state.password)) {
-      this.invalidInputHandler("Password length should be more then 1")
+      this.invalidInputHandler(warningText.passwordSize)
       return;
     }
     authenticationService.login(
@@ -111,7 +111,7 @@ class LoginPage extends React.Component {
                           variant="text"
                           style={useStyles.button}
                           type="submit"
-                      >Login</Button>
+                      >{buttonText.login}</Button>
                     </Grid>
                   </Grid>
                 </form>
@@ -122,8 +122,8 @@ class LoginPage extends React.Component {
                 direction="row"
                 justify="center"
                 alignItems="center">
-              <Grid item style={useStyles.link}><p>Don't have an account?</p></Grid>
-              <Grid item style={useStyles.link}><Link to="/register">Create an account!</Link></Grid>
+              <Grid item style={useStyles.link}><p>{text.noAccount}</p></Grid>
+              <Grid item style={useStyles.link}><Link to="/register">{buttonText.createAccount}</Link></Grid>
             </Grid>
           </Grid>
         </div>

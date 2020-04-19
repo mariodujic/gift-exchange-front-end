@@ -1,6 +1,6 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
-import {colors} from "../../_utils";
+import {colors, text} from "../../_utils";
 
 let useStyles = {
   root: {
@@ -38,7 +38,7 @@ class Tutorial extends React.Component {
                 src="/images/tie.svg" alt=""/>
           </Grid>
           <Grid item>
-            <h2 style={useStyles.text}>1. Sign up & get matched</h2>
+            <h2 style={useStyles.text}>{text.tutorialOne}</h2>
           </Grid>
         </Grid>
       </Grid>
@@ -54,7 +54,7 @@ class Tutorial extends React.Component {
                 src="/images/baloons.svg" alt=""/>
           </Grid>
           <Grid item>
-            <h2 style={useStyles.text}>2. Find the perfect gift & send it</h2>
+            <h2 style={useStyles.text}>{text.tutorialTwo}</h2>
           </Grid>
         </Grid>
       </Grid>
@@ -69,7 +69,7 @@ class Tutorial extends React.Component {
                 src="/images/gift_2.svg" alt=""/>
           </Grid>
           <Grid item>
-            <h2 style={useStyles.text}>3. Receive a gift from your match</h2>
+            <h2 style={useStyles.text}>{text.tutorialThree}</h2>
           </Grid>
         </Grid>
       </Grid>

@@ -7,6 +7,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import {AccountCircle} from "@material-ui/icons";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
+import {buttonText} from "../../_utils";
 
 const useStyles = {
   root: {
@@ -74,8 +75,8 @@ class Navigation extends React.Component {
                 }}
                 open={open}
                 onClose={this.handleClose}>
-              <MenuItem onClick={this.handleClose}>Profile</MenuItem>
-              <MenuItem onClick={this.handleClose}>Logout</MenuItem>
+              <MenuItem onClick={this.handleClose}>{buttonText.profile}</MenuItem>
+              <MenuItem onClick={this.handleClose}>{buttonText.logout}</MenuItem>
             </Menu>
           </div>
         </Toolbar>

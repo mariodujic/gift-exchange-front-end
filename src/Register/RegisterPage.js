@@ -1,7 +1,7 @@
 import React from "react";
 import {authenticationService, validity} from "../_services";
 import {Link} from "react-router-dom";
-import {colors, commonStyles} from "../_utils";
+import {buttonText, colors, commonStyles, text, warningText} from "../_utils";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
@@ -40,15 +40,15 @@ class RegisterPage extends React.Component {
     event.preventDefault();
 
     if (!validity.emailForm(this.state.username)) {
-      this.invalidInputHandler("Email length should be more then 1")
+      this.invalidInputHandler(warningText.emailSize)
       return;
     }
     if (!validity.passwordForm(this.state.password)) {
-      this.invalidInputHandler("Password length should be more then 1")
+      this.invalidInputHandler(warningText.passwordSize)
       return;
     }
     if (!validity.passwordConfirmation(this.state.password, this.state.passwordConfirmation)) {
-      this.invalidInputHandler("Passwords do not match")
+      this.invalidInputHandler(warningText.passwordMatch)
       return;
     }
     authenticationService.register(
@@ -150,7 +150,7 @@ class RegisterPage extends React.Component {
                           variant="text"
                           style={useStyles.button}
                           type="submit"
-                      >Register</Button>
+                      >{buttonText.register}</Button>
                     </Grid>
                   </Grid>
                 </form>
@@ -161,8 +161,8 @@ class RegisterPage extends React.Component {
                 direction="row"
                 justify="center"
                 alignItems="center">
-              <Grid item style={useStyles.link}><p>Already have an account? </p></Grid>
-              <Grid item style={useStyles.link}><Link to="/login">Sign in</Link></Grid>
+              <Grid item style={useStyles.link}><p>{text.haveAccount}</p></Grid>
+              <Grid item style={useStyles.link}><Link to="/login">{buttonText.signIn}</Link></Grid>
             </Grid>
           </Grid>
         </div>
