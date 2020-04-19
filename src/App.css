@@ -23,3 +23,7 @@ body {
 .topMargin{
   margin-top: 3rem !important;
 }
+
+.noMargin{
+  margin: 0
+}

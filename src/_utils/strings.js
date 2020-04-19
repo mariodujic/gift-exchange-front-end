@@ -7,6 +7,7 @@ export const text = {
   tutorialOne: "1. Sign up & get matched",
   tutorialTwo: "2. Find the perfect gift & send it",
   tutorialThree: "3. Receive a gift from your match",
+  eligibleForGiftExchangeShort: "You are now eligible to participate for gift exchange",
 }
 
 export const buttonText = {
@@ -23,7 +24,9 @@ export const buttonText = {
 
 export const titleText = {
   homePage: "Home",
-  howDoesItWork: "So how does it work?"
+  howDoesItWork: "So how does it work?",
+  congrats: "Congrats",
+  errorLoadingSurvey: "Error loading survey",
 }
 
 export const warningText = {
