@@ -15,9 +15,11 @@ body {
   .authorization {
     height: 100%;
   }
+  .smallWidthRemoveElement {
+    display: none
+  }
 }
 
 .topMargin{
   margin-top: 3rem !important;
 }
-
