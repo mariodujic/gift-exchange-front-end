@@ -4,6 +4,9 @@ import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import {buttonText, colors, commonStyles, text, titleText} from "../_utils";
 import Paper from "@material-ui/core/Paper";
+import Icon from "@material-ui/core/Icon";
+import AssignmentLateIcon from '@material-ui/icons/AssignmentLate';
+
 
 const useStyles = {
   contentRoot: {
@@ -37,6 +40,12 @@ const useStyles = {
   textImage: {
     height: "200px",
     width: "200px",
+  },
+  surveyButton: {
+    fontSize: "120%",
+    color: colors.light,
+    background: colors.warning,
+    textTransform: "none"
   }
 }
 
@@ -71,8 +80,7 @@ class HomePage extends React.Component {
                   <p style={useStyles.text}>{text.howDoesItWork}</p>
                 </Grid>
               </Grid>
-              <Paper elevation={3}
-                     className="topMargin">
+              <Paper elevation={3}>
                 <Grid
                     container
                     direction="column"
@@ -80,13 +88,18 @@ class HomePage extends React.Component {
                     alignItems="center"
                     style={useStyles.content}>
                   <Grid item>
+                    <AssignmentLateIcon fontSize="large" color="info"/>
+                  </Grid>
+                  <Grid item>
                     <p style={useStyles.text}>{text.incompleteSurvey}</p>
                   </Grid>
                   <Grid item>
                     <Button
                         variant="contained"
-                        style={useStyles.button}
+                        endIcon={<Icon>edit</Icon>}
+                        color="success"
                         type="button"
+                        size="large"
                     >{buttonText.completeSurvey}</Button>
                   </Grid>
                 </Grid>

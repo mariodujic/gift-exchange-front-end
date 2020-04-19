@@ -27,8 +27,6 @@ export const commonStyles = {
   actionButton: {
     fontSize: "180%",
     color: colors.warning,
-    textShadow: `1px 1px ${colors.darkNavy}`,
-    fontFamily: 'Denk One, sans-serif',
     textTransform: "none"
   }
 }

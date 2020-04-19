@@ -18,6 +18,9 @@ const theme = createMuiTheme({
     secondary: {
       main: colors.accent
     },
+    info: {
+      main: colors.darkNavy
+    }
   },
   typography: {
     fontFamily: 'Baloo Bhaina 2, cursive',
