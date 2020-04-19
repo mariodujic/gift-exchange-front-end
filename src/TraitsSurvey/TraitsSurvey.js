@@ -14,7 +14,7 @@ import LinearProgress from "@material-ui/core/LinearProgress";
 const useStyles = {
   content: {
     width: "100%",
-    padding: "0 20px 0 20px",
+    padding: "20px"
   },
   title: {
     color: colors.warning,

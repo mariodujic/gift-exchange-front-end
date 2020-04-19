@@ -20,6 +20,10 @@ const useStyles = {
     maxWidth: "900px",
     padding: "20px",
   },
+  surveyContent: {
+    width: "100%",
+    maxWidth: "900px",
+  },
   title: commonStyles.displayTitle,
   text: {
     fontSize: "140%"
@@ -84,8 +88,7 @@ class HomePage extends React.Component {
                   <p style={useStyles.text}>{text.howDoesItWork}</p>
                 </Grid>
               </Grid>
-              <Paper elevation={3}
-                     style={useStyles.content}>
+              <Paper elevation={3}  style={useStyles.surveyContent}>
                 {
                   this.state.doingTraitSurvey ?
                       <TraitsSurvey/> :
@@ -93,7 +96,8 @@ class HomePage extends React.Component {
                           container
                           direction="column"
                           justify="space-evenly"
-                          alignItems="center">
+                          alignItems="center"
+                          style={useStyles.content}>
                         <Grid item>
                           <AssignmentLateIcon fontSize="large"/>
                         </Grid>
