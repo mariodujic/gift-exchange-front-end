@@ -6,7 +6,7 @@ import {buttonText, colors, commonStyles, text, titleText} from "../_utils";
 import Paper from "@material-ui/core/Paper";
 import Icon from "@material-ui/core/Icon";
 import AssignmentLateIcon from '@material-ui/icons/AssignmentLate';
-
+import TraitsSurvey from "../TraitsSurvey/TraitsSurvey";
 
 const useStyles = {
   contentRoot: {
@@ -50,6 +50,15 @@ const useStyles = {
 }
 
 class HomePage extends React.Component {
+  state = {
+    doingTraitSurvey: false
+  }
+
+  startSurvey = () => {
+    this.setState({
+      doingTraitSurvey: true
+    })
+  }
 
   render() {
     return (
@@ -80,29 +89,34 @@ class HomePage extends React.Component {
                   <p style={useStyles.text}>{text.howDoesItWork}</p>
                 </Grid>
               </Grid>
-              <Paper elevation={3}>
-                <Grid
-                    container
-                    direction="column"
-                    justify="space-evenly"
-                    alignItems="center"
-                    style={useStyles.content}>
-                  <Grid item>
-                    <AssignmentLateIcon fontSize="large" color="info"/>
-                  </Grid>
-                  <Grid item>
-                    <p style={useStyles.text}>{text.incompleteSurvey}</p>
-                  </Grid>
-                  <Grid item>
-                    <Button
-                        variant="contained"
-                        endIcon={<Icon>edit</Icon>}
-                        color="success"
-                        type="button"
-                        size="large"
-                    >{buttonText.completeSurvey}</Button>
-                  </Grid>
-                </Grid>
+              <Paper elevation={3}
+                     style={useStyles.content}>
+                {
+                  this.state.doingTraitSurvey ?
+                      <TraitsSurvey/> :
+                      <Grid
+                          container
+                          direction="column"
+                          justify="space-evenly"
+                          alignItems="center">
+                        <Grid item>
+                          <AssignmentLateIcon fontSize="large"/>
+                        </Grid>
+                        <Grid item>
+                          <p style={useStyles.text}>{text.incompleteSurvey}</p>
+                        </Grid>
+                        <Grid item>
+                          <Button
+                              variant="contained"
+                              endIcon={<Icon>edit</Icon>}
+                              type="button"
+                              size="large"
+                              onClick={this.startSurvey}
+                          >{buttonText.completeSurvey}</Button>
+                        </Grid>
+                      </Grid>
+
+                }
               </Paper>
               <Grid
                   container

@@ -9,6 +9,10 @@ import Button from "@material-ui/core/Button";
 import Radio from "@material-ui/core/Radio";
 
 const useStyles = {
+  content: {
+    width: "100%",
+    padding: "0 20px 0 20px",
+  },
   formControl: {
     margin: "1rem",
   },
@@ -22,7 +26,7 @@ class TraitsSurvey extends React.Component {
   state = {
     value: '',
     helperText: '',
-    error: ''
+    error: false
   }
 
   handleRadioChange = (event) => {
@@ -46,7 +50,8 @@ class TraitsSurvey extends React.Component {
               container
               direction="column"
               justify="flex-start"
-              alignItems="flex-start">
+              alignItems="flex-start"
+              style={useStyles.content}>
             <h3>Title</h3>
             <p>Questions Questions Questions Questions </p>
             <Grid
@@ -77,3 +82,5 @@ class TraitsSurvey extends React.Component {
     )
   }
 }
+
+export default TraitsSurvey;
