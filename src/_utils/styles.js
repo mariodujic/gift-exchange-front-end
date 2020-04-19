@@ -25,8 +25,14 @@ export const commonStyles = {
     textTransform: "none"
   },
   actionButton: {
-    fontSize: "180%",
+    fontSize: "120%",
     color: colors.warning,
+    textTransform: "none"
+  },
+  surveyButton: {
+    fontSize: "120%",
+    color: colors.light,
+    background: colors.warning,
     textTransform: "none"
   }
 }

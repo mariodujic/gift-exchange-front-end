@@ -7,17 +7,29 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import Button from "@material-ui/core/Button";
 import Radio from "@material-ui/core/Radio";
+import {buttonText, commonStyles} from "../_utils";
+import {colors} from "../_utils/colors";
+import LinearProgress from "@material-ui/core/LinearProgress";
 
 const useStyles = {
   content: {
     width: "100%",
     padding: "0 20px 0 20px",
   },
+  title: {
+    color: colors.warning,
+    fontWeight: "bold",
+  },
   formControl: {
     margin: "1rem",
   },
-  button: {
-    margin: "0 1rem 1rem 0",
+  surveyButton: {
+    ...commonStyles.surveyButton,
+    background: colors.success,
+    margin: "1rem 0 1rem 0",
+  },
+  progress: {
+    width: "100%"
   }
 }
 
@@ -26,7 +38,8 @@ class TraitsSurvey extends React.Component {
   state = {
     value: '',
     helperText: '',
-    error: false
+    error: false,
+    progress: 0
   }
 
   handleRadioChange = (event) => {
@@ -52,7 +65,7 @@ class TraitsSurvey extends React.Component {
               justify="flex-start"
               alignItems="flex-start"
               style={useStyles.content}>
-            <h3>Title</h3>
+            <h1 style={useStyles.title}>Title</h1>
             <p>Questions Questions Questions Questions </p>
             <Grid
                 item
@@ -70,11 +83,18 @@ class TraitsSurvey extends React.Component {
                       <FormControlLabel value="worst" control={<Radio/>} label="The worst."/>
                     </RadioGroup>
                     <FormHelperText>{this.state.helperText}</FormHelperText>
-                    <Button type="submit" variant="outlined" color="primary" style={useStyles.button}>
-                      Check Answer
+                    <Button
+                        type="submit"
+                        variant="contained"
+                        color="primary"
+                        style={useStyles.surveyButton}>
+                      {buttonText.submit}
                     </Button>
                   </FormControl>
                 </form>
+              </Grid>
+              <Grid item style={useStyles.progress} >
+                <LinearProgress color="primary" variant="determinate" value={this.state.progress} />
               </Grid>
             </Grid>
           </Grid>

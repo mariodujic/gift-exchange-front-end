@@ -41,12 +41,7 @@ const useStyles = {
     height: "200px",
     width: "200px",
   },
-  surveyButton: {
-    fontSize: "120%",
-    color: colors.light,
-    background: colors.warning,
-    textTransform: "none"
-  }
+  surveyButton: commonStyles.surveyButton
 }
 
 class HomePage extends React.Component {
@@ -109,6 +104,7 @@ class HomePage extends React.Component {
                           <Button
                               variant="contained"
                               endIcon={<Icon>edit</Icon>}
+                              style={useStyles.surveyButton}
                               type="button"
                               size="large"
                               onClick={this.startSurvey}
@@ -137,6 +133,8 @@ class HomePage extends React.Component {
                       variant="contained"
                       style={useStyles.giftExchangeButton}
                       type="button"
+                      size="large"
+                      endIcon={<Icon>search</Icon>}
                   >{buttonText.exchangeGifts}</Button>
                 </Grid>
               </Grid>
