@@ -34,3 +34,7 @@ export const warningText = {
   passwordSize: "Password length should be more then 1",
   passwordMatch: "Passwords do not match"
 }
+
+export const errorText  = {
+  serverFetchFatalError: "Unable to fetch data from the server"
+}

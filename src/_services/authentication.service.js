@@ -1,4 +1,4 @@
-import {base_url} from '../_utils';
+import {base_url, errorText} from '../_utils';
 import {handleResponse} from "../_helpers";
 import {userLocalKey, userService} from "./user.service";
 
@@ -17,7 +17,9 @@ function register(firstName, lastName, username, password) {
       .then(
           response => handleSuccessResponse(response),
           error => Promise.reject(error)
-      )
+      ).catch(reason => {
+        return Promise.reject(errorText.serverFetchFatalError)
+      })
 }
 
 function login(username, password) {
@@ -28,7 +30,9 @@ function login(username, password) {
       .then(
           response => handleSuccessResponse(response),
           error => Promise.reject(error)
-      )
+      ).catch(reason => {
+        return Promise.reject(errorText.serverFetchFatalError)
+      })
 }
 
 function handleSuccessResponse(response) {

@@ -5,6 +5,8 @@ import Trait from "./Trait";
 import {traitService} from "./trait.service";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import {text, titleText} from "../_utils";
+import Icon from "@material-ui/core/Icon";
+import {colors} from "../_utils/colors";
 
 const useStyles = {
   content: {
@@ -23,6 +25,10 @@ const useStyles = {
     height: "300px",
     width: "300px",
   },
+  icon: {
+    color: colors.warning,
+    marginTop: "2rem"
+  }
 }
 
 class TraitsSurvey extends React.Component {
@@ -147,10 +153,13 @@ class TraitsSurvey extends React.Component {
                  justify="center"
                  alignItems="center">
       <Grid item>
+        <Icon style={useStyles.icon} fontSize="large">warning</Icon>
+      </Grid>
+      <Grid item>
         <h1 className="noMargin">{titleText.errorLoadingSurvey}</h1>
       </Grid>
       <Grid item>
-        <p>{this.state.errorMessage}</p>
+        <h2>{this.state.errorMessage}</h2>
       </Grid>
     </Grid>
   }

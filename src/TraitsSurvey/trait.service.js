@@ -1,4 +1,4 @@
-import {base_url} from "../_utils";
+import {base_url, errorText} from "../_utils";
 import {handleResponse} from "../_helpers";
 
 export const traitService = {
@@ -11,7 +11,9 @@ function getSurvey() {
       .then(
           response => handleSuccessResponse(response),
           error => Promise.reject(error)
-      )
+      ).catch(reason => {
+        return Promise.reject(errorText.serverFetchFatalError)
+      })
 }
 
 function handleSuccessResponse(response) {
