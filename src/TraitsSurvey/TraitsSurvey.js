@@ -4,9 +4,10 @@ import LinearProgress from "@material-ui/core/LinearProgress";
 import Trait from "./Trait";
 import {traitService} from "./trait.service";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import {text, titleText} from "../_utils";
+import {buttonText, commonStyles, text, titleText} from "../_utils";
 import Icon from "@material-ui/core/Icon";
 import {colors} from "../_utils/colors";
+import Button from "@material-ui/core/Button";
 
 const useStyles = {
   content: {
@@ -32,6 +33,11 @@ const useStyles = {
   subtitle: {
     color: colors.lightGrey,
     marginTop: 0,
+  },
+  closeFinishedSurveyButton: {
+    ...commonStyles.actionButton,
+    color: colors.lightGrey,
+    marginBottom: "2rem"
   }
 }
 
@@ -52,12 +58,12 @@ class TraitsSurvey extends React.Component {
 
   getSurvey = () => {
     traitService.getSurvey().then(
-        response => this.onSuccess(response),
-        error => this.onError(error)
+        response => this.onGetSurveySuccess(response),
+        error => this.onGetSurveyError(error)
     )
   }
 
-  onSuccess(traits) {
+  onGetSurveySuccess(traits) {
     this.setState({
       questions: traits,
       currentTrait: traits[0],
@@ -65,7 +71,7 @@ class TraitsSurvey extends React.Component {
     })
   }
 
-  onError(message) {
+  onGetSurveyError(message) {
     this.setState({
       error: true,
       errorMessage: message
@@ -74,9 +80,7 @@ class TraitsSurvey extends React.Component {
 
   onAnswer = () => {
     if (this.isLastTrait()) {
-      this.setState({
-        surveyFinished: true
-      })
+      this.postCompletedSurveyToServer()
       return
     }
 
@@ -87,9 +91,33 @@ class TraitsSurvey extends React.Component {
   }
 
   isLastTrait() {
-    this.props.completeSurvey()
     return this.state.currentProgress + 1 === this.state.totalProgress
   }
+
+  postCompletedSurveyToServer() {
+    traitService.postSurvey(this.getCompletedSurveyData()).then(
+        result => this.onCompletedSurveySuccess(),
+        error => this.onCompletedSurveyError())
+  }
+
+  onCompletedSurveySuccess() {
+    this.setState({
+      surveyFinished: true
+    })
+  }
+
+  onCompletedSurveyError(error) {
+    this.setState({
+      error: true,
+      errorMessage: error
+    })
+  }
+
+  getCompletedSurveyData = () => ({
+    description: "Random description"
+  })
+
+  hideCompletedSurvey = () => this.props.completeSurvey()
 
   getNextQuestion() {
     return this.state.currentProgress + 1
@@ -149,6 +177,14 @@ class TraitsSurvey extends React.Component {
       <Grid item>
         <h2 style={useStyles.subtitle}>{text.eligibleForGiftExchangeShort}</h2>
       </Grid>
+      <Grid item>
+        <Button
+            variant="text"
+            style={useStyles.closeFinishedSurveyButton}
+            type="button"
+            onClick={this.hideCompletedSurvey}
+        >{buttonText.hide}</Button>
+      </Grid>
     </Grid>
   }
 
@@ -161,7 +197,7 @@ class TraitsSurvey extends React.Component {
         <Icon style={useStyles.icon} fontSize="large">warning</Icon>
       </Grid>
       <Grid item>
-        <h1 className="noMargin">{titleText.errorLoadingSurvey}</h1>
+        <h1 className="noMargin">{titleText.traitsSurveyError}</h1>
       </Grid>
       <Grid item>
         <h2>{this.state.errorMessage}</h2>

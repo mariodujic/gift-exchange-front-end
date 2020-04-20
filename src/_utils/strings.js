@@ -19,14 +19,15 @@ export const buttonText = {
   signIn: "Sign in",
   logout: "Logout",
   profile: "Profile",
-  submit: "Submit"
+  submit: "Submit",
+  hide: "Hide"
 }
 
 export const titleText = {
   homePage: "Home",
   howDoesItWork: "So how does it work?",
   congrats: "Congrats",
-  errorLoadingSurvey: "Error loading survey",
+  traitsSurveyError: "Traits survey error",
 }
 
 export const warningText = {

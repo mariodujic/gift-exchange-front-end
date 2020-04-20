@@ -1,9 +1,11 @@
-import {authenticationService} from '../_services';
+import {userService} from '../_services';
 
-export function authHeader() {
-  const currentUser = authenticationService.currentUserValue
-  if (currentUser && currentUser.token) {
-    return {Authorization: `Bearer ${currentUser.token}`}
+export default function authHeader() {
+  const localAccessToken = userService.getLocalStorageAccessTokenObject()
+  if (localAccessToken && localAccessToken.token) {
+    return {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${localAccessToken.token}`}
   } else {
     return {}
   }

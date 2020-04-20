@@ -2,6 +2,7 @@ export const userService = {
   storeUserDataLocally,
   getUser,
   hasCompletedTraitSurvey,
+  getLocalStorageAccessTokenObject
 }
 
 function storeUserDataLocally(type, data) {
@@ -14,6 +15,10 @@ function getUser() {
 
 function hasCompletedTraitSurvey() {
   return localStorage.getItem(userLocalKey.TRAIT_SURVEY_COMPLETED)
+}
+
+function getLocalStorageAccessTokenObject() {
+  return JSON.parse(localStorage.getItem(userLocalKey.ACCESS_TOKEN))
 }
 
 export const userLocalKey = {
