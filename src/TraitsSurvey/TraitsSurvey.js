@@ -28,6 +28,10 @@ const useStyles = {
   icon: {
     color: colors.warning,
     marginTop: "2rem"
+  },
+  subtitle: {
+    color: colors.lightGrey,
+    marginTop: 0,
   }
 }
 
@@ -83,6 +87,7 @@ class TraitsSurvey extends React.Component {
   }
 
   isLastTrait() {
+    this.props.completeSurvey()
     return this.state.currentProgress + 1 === this.state.totalProgress
   }
 
@@ -142,7 +147,7 @@ class TraitsSurvey extends React.Component {
         <h1 className="noMargin">{titleText.congrats}</h1>
       </Grid>
       <Grid item>
-        <h2>{text.eligibleForGiftExchangeShort}</h2>
+        <h2 style={useStyles.subtitle}>{text.eligibleForGiftExchangeShort}</h2>
       </Grid>
     </Grid>
   }

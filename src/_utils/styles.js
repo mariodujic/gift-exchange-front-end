@@ -25,8 +25,10 @@ export const commonStyles = {
     textTransform: "none"
   },
   actionButton: {
-    fontSize: "120%",
+    fontSize: "220%",
     color: colors.warning,
+    fontFamily: 'Denk One, sans-serif',
+    textShadow: `1px 1px ${colors.darkNavy}`,
     textTransform: "none"
   },
   surveyButton: {
