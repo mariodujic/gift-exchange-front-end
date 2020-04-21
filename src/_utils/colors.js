@@ -1,11 +1,18 @@
+const sourceColors = {
+  orange: '#FEAF88',
+  strongPink: '#F76579',
+  pink: '#CB6686',
+  purple: '#745984',
+  navy: '#265D84',
+}
+
 export const colors = {
-  primary: '#91CCF4',
-  primaryDark: '#5CA2D5',
-  darkNavy: '#262639',
-  light: '#ECECEC',
-  accent: '#F3D150',
-  warning: '#F78886',
-  darkGrey: '#474747',
+  primary: sourceColors.navy,
+  secondary: sourceColors.orange,
+  shadow: '#262639',
+  whiteLight: '#ECECEC',
+  whiteMedium: '#d2cfcf',
   lightGrey: '#868585',
-  success: '#4fa74f',
+  darkGrey: '#474747',
+  success: sourceColors.purple,
 }

@@ -10,7 +10,7 @@ let useStyles = {
     marginTop: "50px"
   },
   text: {
-    color: colors.warning,
+    color: colors.strongPink,
     marginBlockEnd: 0
   },
   image: {

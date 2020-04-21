@@ -18,7 +18,7 @@ const useStyles = {
     minWidth: "330px"
   },
   warning: {
-    color: colors.warning,
+    color: colors.strongPink,
   },
   link: {
     padding: "10px"

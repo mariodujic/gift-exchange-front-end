@@ -13,17 +13,14 @@ import {ThemeProvider} from "@material-ui/styles";
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: colors.warning,
+      main: colors.primary,
     },
     secondary: {
-      main: colors.accent
+      main: colors.secondary
     },
-    info: {
-      main: colors.darkNavy
-    }
   },
   typography: {
-    fontFamily: 'Baloo Bhaina 2, cursive',
+    fontFamily: 'Open Sans, sans-serif'
   }
 });
 

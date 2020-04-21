@@ -12,7 +12,7 @@ import Radio from "@material-ui/core/Radio";
 
 const useStyles = {
   title: {
-    color: colors.warning,
+    color: colors.strongPink,
     fontWeight: "bold",
     marginBottom: 0,
     marginTop: 0,

@@ -27,10 +27,6 @@ const useStyles = {
   title: commonStyles.displayTitle,
   text: commonStyles.standardText,
   button: commonStyles.actionButton,
-  giftExchangeButton: {
-    ...commonStyles.actionButton,
-    color: colors.success
-  },
   fixedImage: {
     top: 0,
     right: 0,
@@ -42,10 +38,11 @@ const useStyles = {
     height: "200px",
     width: "200px",
   },
-  startSurveyButton: {
+  startSurveyButton: commonStyles.actionButton,
+  giftExchangeButton: {
     ...commonStyles.actionButton,
-    color: colors.warning
-  }
+    color: colors.success
+  },
 }
 
 class HomePage extends React.Component {
@@ -127,11 +124,6 @@ class HomePage extends React.Component {
           justify="space-evenly"
           alignItems="center"
           style={useStyles.content}>
-        <Grid item>
-          <img
-              style={useStyles.textImage}
-              src="/images/spin.svg" alt=""/>
-        </Grid>
         <Grid item>
           <p style={useStyles.text}>{text.eligibleForGiftExchange}</p>
         </Grid>

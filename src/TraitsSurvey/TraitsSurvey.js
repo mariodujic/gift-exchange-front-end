@@ -27,7 +27,7 @@ const useStyles = {
     width: "300px",
   },
   icon: {
-    color: colors.warning
+    color: colors.strongPink
   },
   subtitle: {
     color: colors.lightGrey,

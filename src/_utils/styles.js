@@ -7,8 +7,8 @@ export const commonStyles = {
   },
   formButton: {
     fontSize: "350%",
-    color: colors.warning,
-    textShadow: `2px 2px ${colors.darkNavy}`,
+    color: colors.primary,
+    textShadow: `2px 2px ${colors.shadow}`,
     fontFamily: 'Denk One, sans-serif',
     marginBlockEnd: "0px",
     marginBlockStart: "0px",
@@ -19,25 +19,23 @@ export const commonStyles = {
   },
   displayTitle: {
     fontSize: "220%",
-    color: colors.warning,
-    textShadow: `1px 1px ${colors.darkNavy}`,
+    color: colors.primary,
     fontFamily: 'Denk One, sans-serif',
     textTransform: "none"
   },
   actionButton: {
     fontSize: "220%",
-    color: colors.warning,
+    color: colors.primary,
     fontFamily: 'Denk One, sans-serif',
-    textShadow: `1px 1px ${colors.darkNavy}`,
     textTransform: "none"
   },
   surveyButton: {
     fontSize: "120%",
-    color: colors.light,
-    background: colors.warning,
+    color: colors.whiteLight,
+    background: colors.primary,
     textTransform: "none"
   },
   standardText: {
-    fontSize: "140%"
+    fontSize: "130%"
   },
 }
