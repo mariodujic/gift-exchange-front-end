@@ -36,6 +36,7 @@ export const commonStyles = {
     textTransform: "none"
   },
   standardText: {
-    fontSize: "130%"
+    fontSize: "130%",
+    lineHeight: 1.8
   },
 }

@@ -2,11 +2,12 @@ import React from "react";
 import Navigation from "../components/Navigation/Navigation";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
-import {buttonText, colors, commonStyles, text, titleText} from "../_utils";
+import {buttonText, colors, commonStyles, text, pretentiousTheme, titleText} from "../_utils";
 import Paper from "@material-ui/core/Paper";
 import AssignmentLateIcon from '@material-ui/icons/AssignmentLate';
 import TraitsSurvey from "../TraitsSurvey/TraitsSurvey";
 import {userService} from "../_services";
+import {ThemeProvider} from "@material-ui/styles";
 
 const useStyles = {
   contentRoot: {
@@ -41,7 +42,7 @@ const useStyles = {
   startSurveyButton: commonStyles.actionButton,
   giftExchangeButton: {
     ...commonStyles.actionButton,
-    color: colors.success
+    color: colors.success,
   },
 }
 
@@ -128,12 +129,15 @@ class HomePage extends React.Component {
           <p style={useStyles.text}>{text.eligibleForGiftExchange}</p>
         </Grid>
         <Grid item>
-          <Button
-              variant="text"
-              style={useStyles.giftExchangeButton}
-              type="button"
-              size="large"
-          >{buttonText.exchangeGifts}</Button>
+          <ThemeProvider theme={pretentiousTheme}>
+            <Button
+                color="primary"
+                variant="outlined"
+                style={useStyles.giftExchangeButton}
+                type="button"
+                size="large"
+            >{buttonText.exchangeGifts}</Button>
+          </ThemeProvider>
         </Grid>
       </Grid>
   )

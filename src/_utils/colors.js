@@ -14,5 +14,5 @@ export const colors = {
   whiteMedium: '#d2cfcf',
   lightGrey: '#868585',
   darkGrey: '#474747',
-  success: sourceColors.purple,
+  success: sourceColors.pink,
 }

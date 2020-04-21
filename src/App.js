@@ -6,23 +6,8 @@ import {userService} from "./_services";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import {LoginPage} from "./Login";
 import {ErrorPage} from "./Error";
-import {colors} from "./_utils";
-import {createMuiTheme} from "@material-ui/core";
 import {ThemeProvider} from "@material-ui/styles";
-
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      main: colors.primary,
-    },
-    secondary: {
-      main: colors.secondary
-    },
-  },
-  typography: {
-    fontFamily: 'Open Sans, sans-serif'
-  }
-});
+import {baseTheme} from "./_utils";
 
 class App extends React.Component {
   state = {
@@ -31,7 +16,6 @@ class App extends React.Component {
 
   componentDidMount() {
     this.loadInitialUser()
-    // authenticationService.currentUser.subscribe(value => this.setState({currentUser: value}))
   }
 
   loadInitialUser() {
@@ -50,7 +34,7 @@ class App extends React.Component {
   render() {
     const currentUser = this.state.currentUser;
     return (
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={baseTheme}>
           <div>
             <Router>
               {currentUser ? <HomePage/> : this.authenticationDom()}

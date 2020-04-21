@@ -16,6 +16,11 @@ const useStyles = {
   title: {
     flexGrow: 1
   },
+  button: {
+    fontSize: "110%",
+    marginLeft: "1.5rem",
+    textTransform: "none"
+  }
 }
 
 class Navigation extends React.Component {
@@ -29,9 +34,10 @@ class Navigation extends React.Component {
                 <MenuIcon/>
               </IconButton>
               <Typography variant="h6" style={useStyles.title}>
-                News
+                {this.props.title}
               </Typography>
-              <Button color="inherit">Login</Button>
+              <Button style={useStyles.button} color="inherit">Logout</Button>
+              <Button style={useStyles.button}  color="inherit" variant="outlined">PROFILE</Button>
             </Toolbar>
           </AppBar>
         </div>
