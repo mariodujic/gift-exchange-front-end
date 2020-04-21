@@ -1,6 +1,6 @@
-import {base_url, errorText} from "../_utils";
-import {handleResponse} from "../_helpers";
-import authHeader from "../_helpers/auth-header";
+import {base_url, errorText} from "../../_utils";
+import {handleResponse} from "../../_helpers";
+import authHeader from "../../_helpers/auth-header";
 
 export const traitService = {
   getSurvey,

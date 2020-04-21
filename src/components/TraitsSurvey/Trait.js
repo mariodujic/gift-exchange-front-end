@@ -5,8 +5,8 @@ import FormLabel from "@material-ui/core/FormLabel";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import Button from "@material-ui/core/Button";
-import {colors, commonStyles} from "../_utils";
-import {buttonText} from "../_utils/strings";
+import {colors, commonStyles} from "../../_utils";
+import {buttonText} from "../../_utils/strings";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import Radio from "@material-ui/core/Radio";
 

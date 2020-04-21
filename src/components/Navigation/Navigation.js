@@ -5,6 +5,8 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import MenuIcon from '@material-ui/icons/Menu';
 import Button from "@material-ui/core/Button";
+import {userService} from "../../_services";
+import {Link} from "react-router-dom";
 
 const useStyles = {
   root: {
@@ -25,6 +27,10 @@ const useStyles = {
 
 class Navigation extends React.Component {
 
+  logout = () => {
+    userService.removeUserDataLocally()
+  }
+
   render() {
     return (
         <div style={useStyles.root}>
@@ -36,8 +42,15 @@ class Navigation extends React.Component {
               <Typography variant="h6" style={useStyles.title}>
                 {this.props.title}
               </Typography>
-              <Button style={useStyles.button} color="inherit">Logout</Button>
-              <Button style={useStyles.button}  color="inherit" variant="outlined">PROFILE</Button>
+              <Button
+                  style={useStyles.button}
+                  color="inherit"
+                  onClick={this.logout}
+                  component={Link}
+                  to="/">
+                Logout
+              </Button>
+              <Button style={useStyles.button} color="inherit" variant="outlined">PROFILE</Button>
             </Toolbar>
           </AppBar>
         </div>

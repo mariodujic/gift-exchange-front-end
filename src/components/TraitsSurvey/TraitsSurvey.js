@@ -4,9 +4,9 @@ import LinearProgress from "@material-ui/core/LinearProgress";
 import Trait from "./Trait";
 import {traitService} from "./trait.service";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import {buttonText, commonStyles, text, titleText} from "../_utils";
+import {buttonText, commonStyles, text, titleText} from "../../_utils";
 import Icon from "@material-ui/core/Icon";
-import {colors} from "../_utils/colors";
+import {colors} from "../../_utils/colors";
 import Button from "@material-ui/core/Button";
 
 const useStyles = {

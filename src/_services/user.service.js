@@ -1,5 +1,6 @@
 export const userService = {
   storeUserDataLocally,
+  removeUserDataLocally,
   getUser,
   hasCompletedTraitSurvey,
   getLocalStorageAccessTokenObject
@@ -8,6 +9,13 @@ export const userService = {
 function storeUserDataLocally(type, data) {
   localStorage.setItem(type, JSON.stringify(data))
 }
+
+function removeUserDataLocally() {
+  localStorage.removeItem(userLocalKey.USER)
+  localStorage.removeItem(userLocalKey.REFRESH_TOKEN)
+  localStorage.removeItem(userLocalKey.ACCESS_TOKEN)
+}
+
 
 function getUser() {
   return JSON.parse(localStorage.getItem(userLocalKey.USER))

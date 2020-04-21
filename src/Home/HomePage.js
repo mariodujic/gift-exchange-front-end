@@ -5,7 +5,7 @@ import Button from "@material-ui/core/Button";
 import {buttonText, colors, commonStyles, text, pretentiousTheme, titleText} from "../_utils";
 import Paper from "@material-ui/core/Paper";
 import AssignmentLateIcon from '@material-ui/icons/AssignmentLate';
-import TraitsSurvey from "../TraitsSurvey/TraitsSurvey";
+import TraitsSurvey from "../components/TraitsSurvey/TraitsSurvey";
 import {userService} from "../_services";
 import {ThemeProvider} from "@material-ui/styles";
 
