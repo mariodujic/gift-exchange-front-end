@@ -67,7 +67,9 @@ class Trait extends React.Component {
   }
 
   resetValue() {
-    this.state.value = ''
+    this.setState({
+      value: ''
+    })
   }
 
   render() {
