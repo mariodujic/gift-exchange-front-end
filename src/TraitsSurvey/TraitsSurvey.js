@@ -61,19 +61,11 @@ class TraitsSurvey extends React.Component {
   }
 
   getSurvey = () => {
-    this.onLoadingSurvey()
-
+    this.onLoading()
     traitService.getSurvey().then(
         response => this.onGetSurveySuccess(response),
         error => this.onGetSurveyError(error)
     )
-  }
-
-  onLoadingSurvey = () => {
-    this.setState({
-      error: false,
-      errorMessage: ''
-    })
   }
 
   onGetSurveySuccess(traits) {
@@ -91,23 +83,8 @@ class TraitsSurvey extends React.Component {
     })
   }
 
-  onAnswer = () => {
-    if (this.isLastTrait()) {
-      this.postCompletedSurveyToServer()
-      return
-    }
-
-    this.setState({
-      currentProgress: this.getNextQuestion(),
-      currentTrait: this.getNextTraitObject()
-    })
-  }
-
-  isLastTrait() {
-    return this.state.currentProgress + 1 === this.state.totalProgress
-  }
-
   postCompletedSurveyToServer() {
+    this.onLoading()
     traitService.postSurvey(this.getCompletedSurveyData()).then(
         result => this.onCompletedSurveySuccess(),
         error => this.onCompletedSurveyError())
@@ -126,6 +103,21 @@ class TraitsSurvey extends React.Component {
     })
   }
 
+  onLoading = () => {
+    this.setState({
+      error: false,
+      errorMessage: ''
+    })
+  }
+
+  onErrorTryAgain = ()=> {
+    if (this.isLastTrait()) {
+      return this.postCompletedSurveyToServer()
+    } else {
+      return this.getSurvey()
+    }
+  }
+
   getCompletedSurveyData = () => ({
     description: "Random description"
   })
@@ -134,6 +126,22 @@ class TraitsSurvey extends React.Component {
 
   getNextQuestion() {
     return this.state.currentProgress + 1
+  }
+
+  onAnswer = () => {
+    if (this.isLastTrait()) {
+      this.postCompletedSurveyToServer()
+      return
+    }
+
+    this.setState({
+      currentProgress: this.getNextQuestion(),
+      currentTrait: this.getNextTraitObject()
+    })
+  }
+
+  isLastTrait() {
+    return this.state.currentProgress + 1 === this.state.totalProgress
   }
 
   getNextTraitObject() {
@@ -221,7 +229,7 @@ class TraitsSurvey extends React.Component {
             variant="text"
             style={useStyles.retryOnErrorSurveyButton}
             type="button"
-            onClick={this.getSurvey}
+            onClick={this.onErrorTryAgain}
         >{buttonText.tryAgain}</Button>
       </Grid>
     </Grid>
