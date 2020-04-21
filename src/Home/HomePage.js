@@ -25,9 +25,7 @@ const useStyles = {
     maxWidth: "900px",
   },
   title: commonStyles.displayTitle,
-  text: {
-    fontSize: "140%"
-  },
+  text: commonStyles.standardText,
   button: commonStyles.actionButton,
   giftExchangeButton: {
     ...commonStyles.actionButton,
@@ -96,7 +94,7 @@ class HomePage extends React.Component {
       <Paper elevation={3} style={useStyles.surveyContent}>
         {
           this.state.doingTraitSurvey ?
-              <TraitsSurvey completeSurvey={this.completeSurvey}/> :
+              <TraitsSurvey completeSurvey={this.completeSurvey} retryOnErrorSurvey={this.startSurvey}/> :
               <Grid
                   container
                   direction="column"

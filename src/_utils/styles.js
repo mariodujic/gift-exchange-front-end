@@ -36,5 +36,8 @@ export const commonStyles = {
     color: colors.light,
     background: colors.warning,
     textTransform: "none"
-  }
+  },
+  standardText: {
+    fontSize: "140%"
+  },
 }

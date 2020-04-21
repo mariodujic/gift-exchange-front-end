@@ -27,8 +27,7 @@ const useStyles = {
     width: "300px",
   },
   icon: {
-    color: colors.warning,
-    marginTop: "2rem"
+    color: colors.warning
   },
   subtitle: {
     color: colors.lightGrey,
@@ -38,7 +37,12 @@ const useStyles = {
     ...commonStyles.actionButton,
     color: colors.lightGrey,
     marginBottom: "2rem"
-  }
+  },
+  retryOnErrorSurveyButton: {
+    ...commonStyles.actionButton,
+    color: colors.lightGrey
+  },
+  text: commonStyles.standardText,
 }
 
 class TraitsSurvey extends React.Component {
@@ -57,10 +61,19 @@ class TraitsSurvey extends React.Component {
   }
 
   getSurvey = () => {
+    this.onLoadingSurvey()
+
     traitService.getSurvey().then(
         response => this.onGetSurveySuccess(response),
         error => this.onGetSurveyError(error)
     )
+  }
+
+  onLoadingSurvey = () => {
+    this.setState({
+      error: false,
+      errorMessage: ''
+    })
   }
 
   onGetSurveySuccess(traits) {
@@ -192,7 +205,8 @@ class TraitsSurvey extends React.Component {
     return <Grid container
                  direction="column"
                  justify="center"
-                 alignItems="center">
+                 alignItems="center"
+                 style={useStyles.content}>
       <Grid item>
         <Icon style={useStyles.icon} fontSize="large">warning</Icon>
       </Grid>
@@ -200,7 +214,15 @@ class TraitsSurvey extends React.Component {
         <h1 className="noMargin">{titleText.traitsSurveyError}</h1>
       </Grid>
       <Grid item>
-        <h2>{this.state.errorMessage}</h2>
+        <p className="noMargin" style={useStyles.text}>{this.state.errorMessage}</p>
+      </Grid>
+      <Grid item>
+        <Button
+            variant="text"
+            style={useStyles.retryOnErrorSurveyButton}
+            type="button"
+            onClick={this.getSurvey}
+        >{buttonText.tryAgain}</Button>
       </Grid>
     </Grid>
   }

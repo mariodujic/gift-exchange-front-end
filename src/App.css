@@ -26,6 +26,10 @@ body {
   margin-top: 3rem !important;
 }
 
+.bottomMargin {
+  margin-bottom: 3rem !important;
+}
+
 .noMargin {
   margin: 0
 }

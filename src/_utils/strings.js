@@ -12,6 +12,7 @@ export const text = {
 
 export const buttonText = {
   completeSurvey: "Complete Survey",
+  tryAgain: "Try again",
   exchangeGifts: "Exchange Gifts",
   login: "Login",
   register: "Register",
