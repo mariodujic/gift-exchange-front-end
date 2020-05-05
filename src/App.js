@@ -8,6 +8,7 @@ import {LoginPage} from "./Login";
 import {ErrorPage} from "./Error";
 import {ThemeProvider} from "@material-ui/styles";
 import {baseTheme} from "./_utils";
+import {ProfilePage} from "./Profile";
 
 class App extends React.Component {
   state = {
@@ -35,12 +36,20 @@ class App extends React.Component {
     const currentUser = this.state.currentUser;
     return (
         <ThemeProvider theme={baseTheme}>
-          <div>
-            <Router>
-              {currentUser ? <HomePage/> : this.authenticationDom()}
-            </Router>
-          </div>
+          <Router>
+            {currentUser ? this.contentDom() : this.authenticationDom()}
+          </Router>
         </ThemeProvider>
+    )
+  }
+
+  contentDom() {
+    return (
+        <Switch>
+          <Route path="/" exact render={(props) => <HomePage/>}/>
+          <Route path="/profile" render={(props) => <ProfilePage/>}/>
+          <Route component={ErrorPage}/>
+        </Switch>
     )
   }
 
@@ -51,6 +60,7 @@ class App extends React.Component {
             <Route path="/" exact render={(props) => <LoginPage onLogin={this.setNewUser}/>}/>
             <Route path="/login" render={(props) => <LoginPage onLogin={this.setNewUser}/>}/>
             <Route path="/register" render={(props) => <RegisterPage onRegister={this.setNewUser}/>}/>
+            <Route path="/profile" render={(props) => <ProfilePage/>}/>
             <Route component={ErrorPage}/>
           </Switch>
         </div>

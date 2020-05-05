@@ -51,7 +51,7 @@ class Navigation extends React.Component {
                   to="/">
                 Logout
               </Button>
-              <Button style={useStyles.button} color="inherit" variant="outlined">PROFILE</Button>
+              <Button style={useStyles.button} color="inherit" variant="outlined"><Link to={`/profile`}>Rendering with React</Link></Button>
             </Toolbar>
           </AppBar>
         </div>
