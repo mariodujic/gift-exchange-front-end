@@ -45,13 +45,20 @@ class Navigation extends React.Component {
               </Typography>
               <Button
                   style={useStyles.button}
+                  component={Link}
+                  to="/login"
                   color="inherit"
                   onClick={this.logout}
                   component={Link}
                   to="/">
                 Logout
               </Button>
-              <Button style={useStyles.button} color="inherit" variant="outlined"><Link to={`/profile`}>Rendering with React</Link></Button>
+              <Button
+                  component={Link}
+                  to="/profile"
+                  style={useStyles.button}
+                  color="inherit"
+                  variant="outlined">PROFILE</Button>
             </Toolbar>
           </AppBar>
         </div>

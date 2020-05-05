@@ -30,6 +30,7 @@ export const titleText = {
   congrats: "Congrats",
   traitsSurveyError: "Traits survey error",
   postTraitsSurveyError: "Error sending data to server",
+  profilePage: "Profile",
 }
 
 export const warningText = {
@@ -38,6 +39,6 @@ export const warningText = {
   passwordMatch: "Passwords do not match"
 }
 
-export const errorText  = {
+export const errorText = {
   serverFetchFatalError: "Unable to fetch data from the server"
 }

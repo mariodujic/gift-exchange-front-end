@@ -9,10 +9,12 @@ import {ErrorPage} from "./Error";
 import {ThemeProvider} from "@material-ui/styles";
 import {baseTheme} from "./_utils";
 import {ProfilePage} from "./Profile";
+import Navigation from "./components/Navigation/Navigation";
 
 class App extends React.Component {
   state = {
-    currentUser: null
+    currentUser: null,
+    navigationTitle: ''
   }
 
   componentDidMount() {
@@ -32,6 +34,12 @@ class App extends React.Component {
     })
   }
 
+  setTitle = (title) => {
+    this.setState({
+      navigationTitle: title
+    })
+  }
+
   render() {
     const currentUser = this.state.currentUser;
     return (
@@ -45,11 +53,14 @@ class App extends React.Component {
 
   contentDom() {
     return (
-        <Switch>
-          <Route path="/" exact render={(props) => <HomePage/>}/>
-          <Route path="/profile" render={(props) => <ProfilePage/>}/>
-          <Route component={ErrorPage}/>
-        </Switch>
+        <div>
+          <Navigation title={this.state.navigationTitle}/>
+          <Switch>
+            <Route path="/" exact render={(props) => <HomePage setTitle={this.setTitle}/>}/>
+            <Route path="/profile" render={(props) => <ProfilePage setTitle={this.setTitle}/>}/>
+            <Route component={ErrorPage}/>
+          </Switch>
+        </div>
     )
   }
 

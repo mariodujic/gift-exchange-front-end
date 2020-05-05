@@ -53,6 +53,7 @@ class HomePage extends React.Component {
   }
 
   componentDidMount() {
+    this.props.setTitle(titleText.homePage)
     const hasCompletedTraitSurvey = userService.hasCompletedTraitSurvey() || false
     this.setState({
       completedTraitSurvey: hasCompletedTraitSurvey
@@ -147,7 +148,7 @@ class HomePage extends React.Component {
   render() {
     return (
         <div>
-          <Navigation title={titleText.homePage}/>
+
           <img
               style={useStyles.fixedImage}
               src="/images/flags.svg" alt=""
