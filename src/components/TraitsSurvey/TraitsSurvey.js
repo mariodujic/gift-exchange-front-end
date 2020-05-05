@@ -110,7 +110,7 @@ class TraitsSurvey extends React.Component {
     })
   }
 
-  onErrorTryAgain = ()=> {
+  onErrorTryAgain = () => {
     if (this.isLastTrait()) {
       return this.postCompletedSurveyToServer()
     } else {
@@ -219,7 +219,7 @@ class TraitsSurvey extends React.Component {
         <Icon style={useStyles.icon} fontSize="large">warning</Icon>
       </Grid>
       <Grid item>
-        <h1 className="noMargin">{titleText.traitsSurveyError}</h1>
+        <h1 className="noMargin">{titleText.postTraitsSurveyError}</h1>
       </Grid>
       <Grid item>
         <p className="noMargin" style={useStyles.text}>{this.state.errorMessage}</p>

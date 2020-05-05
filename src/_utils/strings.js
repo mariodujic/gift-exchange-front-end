@@ -29,6 +29,7 @@ export const titleText = {
   howDoesItWork: "So how does it work?",
   congrats: "Congrats",
   traitsSurveyError: "Traits survey error",
+  postTraitsSurveyError: "Error sending data to server",
 }
 
 export const warningText = {

@@ -29,6 +29,7 @@ class Navigation extends React.Component {
 
   logout = () => {
     userService.removeUserDataLocally()
+    window.location.reload(false)
   }
 
   render() {
